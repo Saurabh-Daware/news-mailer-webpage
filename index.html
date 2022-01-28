@@ -16,7 +16,7 @@
       function addmail() {
         var email = document.getElementById("inputEmail").value;
         var submitBtn = document.getElementById("linkToApi");
-        submitBtn.setAttribute("href", "https://news-mailer.azurewebsites.net/api/HttpTrigger1?email=" + email);
+        if(email != null) submitBtn.setAttribute("href", "https://news-mailer.azurewebsites.net/api/HttpTrigger1?email=" + email);
         console.log(email);
       }
     </script>
