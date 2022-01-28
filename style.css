@@ -1,0 +1,29 @@
+body{
+    background-color: #007fff;
+    opacity: 1;
+    background-image:  radial-gradient(#f0ffff 0.6000000000000001px, transparent 0.6000000000000001px), radial-gradient(#f0ffff 0.6000000000000001px, #007fff 0.6000000000000001px);
+    background-size: 24px 24px;
+    background-position: 0 0,12px 12px;
+    }
+
+.main{
+    width: 100vw;
+    height: 92vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    background-color: #fff;
+    opacity: 1;
+    background-image:  radial-gradient(#007fff 0.6000000000000001px, transparent 0.6000000000000001px), radial-gradient(#007fff 0.6000000000000001px, #fff 0.6000000000000001px);
+    background-size: 24px 24px;
+    background-position: 0 0,12px 12px;
+    
+}
+
+h1{
+    color: #fff;
+}
+
