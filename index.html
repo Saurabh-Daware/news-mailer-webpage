@@ -13,11 +13,24 @@
   <body>
     
     <script>
+
+      var link;
+
+      function emailIsValid(email) {
+          return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+        }
+
       function addmail() {
-        var email = document.getElementById("inputEmail").value;
-        var submitBtn = document.getElementById("linkToApi");
-        if(email != null) submitBtn.setAttribute("href", "https://news-mailer.azurewebsites.net/api/HttpTrigger1?email=" + email);
+        var email = document.getElementById("inputEmail").value.trim();
+        if(emailIsValid(email)) link =  "https://news-mailer.azurewebsites.net/api/HttpTrigger1?email=" + email;
         console.log(email);
+      }
+
+      function openSubmitBtn(){
+        var submitHREF = document.getElementById("linkToApi");
+        var submitBtn = document.getElementById("submitBtn");
+        submitHREF.setAttribute("href", link);
+        submitBtn.removeAttribute("disabled");
       }
     </script>
 
@@ -27,16 +40,16 @@
         <form class="border border-dark p-5" >
             <div class="mb-3">
               <label for="inputEmail" class="form-label">Email address</label>
-              <input type="email" onfocusout="addmail()" class="form-control" id="inputEmail" aria-describedby="emailHelp" required>
+              <input type="email" oninput="addmail()" class="form-control" id="inputEmail" aria-describedby="emailHelp" required>
               <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
             </div>
             
             <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" onchange=openSubmitBtn()>
               <label class="form-check-label" for="exampleCheck1">You agree to receive daily email</label>
             </div>
             <a id="linkToApi" href="">
-            <button type="button" id="submitBtn" class="btn btn-primary">Register</button>
+            <button type="button" id="submitBtn" class="btn btn-primary" disabled>Register</button>
             </a>
           </form>
     </div>
